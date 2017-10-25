@@ -1,0 +1,10 @@
+{
+  "description": "Retrieve valid providers for a given puppet resource type",
+  "input_method": "stdin",
+  "parameters": {
+    "type": {
+      "description": "Puppet resource type",
+      "type": "String[1]"
+    }
+  }
+}
