@@ -1,13 +1,7 @@
 #!/opt/puppetlabs/puppet/bin/ruby
 require 'puppet'
 
-if ARGV.length != 1
-  puts "Usage: #{$0} <type of puppet resource>"
-  puts "#{$0} service"
-  exit 2
-end
-
-type = ARGV[0]
+type = $PT_type
 
 s = Puppet::Type.type(type)
 valid = []
