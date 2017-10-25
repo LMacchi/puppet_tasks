@@ -5,19 +5,21 @@ require 'json'
 params = JSON.parse(STDIN.read)
 type = params['type']
 
+s = Puppet::Type.type(type)
+valid = []
+
 begin
-  s = Puppet::Type.type(type)
+  providers = s.providers
 rescue
-  puts "Type #{type} is not a valid puppet resource"
+  puts "Type #{type} is not a valid Puppet resource"
   exit 1
 end
 
-valid = []
-
-s.providers.each do | prov |
+providers.each do | prov |
   if s.validprovider?(prov)
     valid.push(prov.to_s)
   end
 end
 
 puts valid.to_json
+exit 0
