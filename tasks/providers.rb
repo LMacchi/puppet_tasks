@@ -1,10 +1,17 @@
 #!/opt/puppetlabs/puppet/bin/ruby
 require 'puppet'
+require 'json'
 
 params = JSON.parse(STDIN.read)
 type = params['type']
 
-s = Puppet::Type.type(type)
+begin
+  s = Puppet::Type.type(type)
+rescue
+  puts "Type #{type} is not a valid puppet resource"
+  exit 1
+end
+
 valid = []
 
 s.providers.each do | prov |
@@ -13,4 +20,4 @@ s.providers.each do | prov |
   end
 end
 
-puts valid
+puts valid.to_json
