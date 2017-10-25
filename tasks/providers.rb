@@ -1,7 +1,8 @@
 #!/opt/puppetlabs/puppet/bin/ruby
 require 'puppet'
 
-type = $PT_type
+params = JSON.parse(STDIN.read)
+type = params['type']
 
 s = Puppet::Type.type(type)
 valid = []
