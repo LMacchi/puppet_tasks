@@ -18,6 +18,6 @@ begin
   puts JSON.pretty_generate Puppet::Util::Puppetdb.query_puppetdb(query)
   exit 0
 rescue Puppet::Error => e
-  puts JSON.pretty_generate '{ status: 'failure', error: e.message }'
+  puts JSON.pretty_generate "{ status: 'failure', error: e.message }".to_json
   exit 1
 end
