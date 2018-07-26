@@ -1,5 +1,6 @@
 #!/opt/puppetlabs/puppet/bin/ruby
 
+# Ranjit helped creating this beauty
 require 'puppet'
 Puppet.initialize_settings
 begin
@@ -15,7 +16,7 @@ def puppetdb_query(query)
 end
 
 begin
-  puts JSON.pretty_generate Puppet::Util::Puppetdb.query_puppetdb(query)
+  puts JSON.pretty_generate puppetdb_query(query)
   exit 0
 rescue Puppet::Error => e
   puts JSON.pretty_generate "{ status: 'failure', error: e.message }".to_json
