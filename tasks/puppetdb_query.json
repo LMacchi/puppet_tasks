@@ -1,0 +1,12 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "input_method": "environment",
+  "description": "Run a PuppetDB query via task",
+  "parameters": {
+    "query": {
+      "description": "Query you want to execute",
+      "type": "String[1]"
+    }
+  }
+}
