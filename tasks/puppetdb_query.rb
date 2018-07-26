@@ -15,9 +15,9 @@ def puppetdb_query(query)
 end
 
 begin
-  puts Puppet::Util::Puppetdb.query_puppetdb(query).to_json
+  puts JSON.pretty_generate Puppet::Util::Puppetdb.query_puppetdb(query)
   exit 0
 rescue Puppet::Error => e
-  puts({ status: 'failure', error: e.message }.to_json)
+  puts JSON.pretty_generate '{ status: 'failure', error: e.message }'
   exit 1
 end
