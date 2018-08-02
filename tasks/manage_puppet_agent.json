@@ -7,6 +7,10 @@
     "command": {
       "description": "Command to execute",
       "type": "Enum['enable','disable','status']"
+    },
+    "message": {
+      "description": "Optional: Reason to disable agent",
+      "type": "Optional[String[1]]"
     }
   }
 }
