@@ -1,0 +1,12 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "input_method": "environment",
+  "description": "Manage Puppet agent",
+  "parameters": {
+    "command": {
+      "description": "Command to execute",
+      "type": "Enum['enable','disable','status']"
+    }
+  }
+}
